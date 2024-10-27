@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cabecera</title>
+    <style>
+        header {
+            width: 100%;
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1 id="header-text">Club la Trashumancia</h1>
+    </header>
+    <script>
+        // Función para establecer el texto de la cabecera
+        function setHeaderText(text) {
+            document.getElementById('header-text').innerText = text;
+        }
+
+        // Obtener el parámetro de la URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const headerText = urlParams.get('text');
+
+        // Establecer el texto si existe el parámetro
+        if (headerText) {
+            setHeaderText(headerText+" - Club la Trashumancia");
+        }
+    </script>
+</body>
+</html>

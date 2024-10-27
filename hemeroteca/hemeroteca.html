@@ -9,57 +9,26 @@
             font-family: Arial, sans-serif;
             margin: 0;
         }
-        header {
-            width: 100%;
-            background-color: #333;
-            color: white;
-            text-align: center;
-            padding: 1rem 0;
-        }
         .container {
             display: flex;
-        }
-        nav {
-            width: 200px;
-            background-color: #f4f4f4;
-            padding-top: 1rem;
-            border-right: 1px solid #ccc;
-        }
-        nav ul {
-            list-style-type: none;
-            padding: 0;
-        }
-        nav ul li {
-            padding: 10px;
-            text-align: center;
-        }
-        nav ul li a {
-            text-decoration: none;
-            color: #333;
-            display: block;
-        }
-        nav ul li a:hover {
-            background-color: #ddd;
         }
         .content {
             flex: 1;
             padding: 1rem;
         }
+        iframe {
+            border: none;
+            width: 100%;
+        }
+        #nav-iframe {
+            width: 200px;
+        }
     </style>
 </head>
 <body>
-    <header>
-        <h1>Hemeroteca - Club la Trashumancia</h1>
-    </header>
+    <iframe src="header.html?text=Hemeroteca" name="header"></iframe>
     <div class="container">
-        <nav>
-            <ul>
-                <li><a href="hemeroteca/hemeroteca.html">Hemeroteca</a></li>
-                <li hidden><a href="#services">Servicios</a></li>
-                <li hidden><a href="#contact">Contacto</a></li>
-                <li><button onclick="window.history.back()">Atrás</button></li>
-            </ul>
-        </nav>
+        <iframe src="nav.html" name="nav" id="nav-iframe"></iframe>
         <div class="content">
             <h2>Bienvenido a la hemeroteca del Club la Trashumancia</h2>
             <p>Empezando por la comida del club del 26 de octubre de 2024</p><a href="2024/26102024.html">Click aquí</a>
