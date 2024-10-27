@@ -37,10 +37,23 @@
 <body>
     <nav>
 		<ul>
+		    <script>
+				// Función para obtener el valor de un parámetro de la URL
+				function getQueryParam(param) {
+					let urlParams = new URLSearchParams(window.location.search);
+					return urlParams.get(param);
+				}
+
+				// Ocultar el li si el query param es true
+				let index = getQueryParam('index');
+				if (index === 'true') {
+					document.getElementById('back_button').classList.add('hidden');
+				}
+			</script>
 			<li><a href="/clubtrashumancia/hemeroteca/hemeroteca.html"  target="_top">Hemeroteca</a></li>
 			<li hidden><a href="#services">Servicios</a></li>
 			<li hidden><a href="#contact">Contacto</a></li>
-			<li><button onclick="window.history.back()">Atrás</button></li>
+			<li><button onclick="window.history.back()" id="back_button">Atrás</button></li>
 		</ul>
     </nav>
 </body>
