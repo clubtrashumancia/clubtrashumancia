@@ -25,6 +25,63 @@
             height: 100vh; /* Esto asegura que el iframe del menú ocupe toda la altura */
             overflow: hidden; /* Ocultar las barras de desplazamiento */
         }
+		
+		
+		
+        /* Estilos para imagenes mini */
+
+        .thumbnail {
+            width: 200px;
+            cursor: pointer;
+        }
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.9);
+        }
+        .modal-content {
+            margin: auto;
+            display: block;
+            width: 80%;
+            max-width: 700px;
+        }
+        .modal-content, .modal-caption {
+            -webkit-animation-name: zoom;
+            -webkit-animation-duration: 0.6s;
+            animation-name: zoom;
+            animation-duration: 0.6s;
+        }
+        @-webkit-keyframes zoom {
+            from {-webkit-transform: scale(0)} 
+            to {-webkit-transform: scale(1)}
+        }
+        @keyframes zoom {
+            from {transform: scale(0.1)} 
+            to {transform: scale(1)}
+        }
+        .close {
+            position: absolute;
+            top: 15px;
+            right: 35px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+        .close:hover,
+        .close:focus {
+            color: #bbb;
+            text-decoration: none;
+            cursor: pointer;
+        }
+		 /* End Estilos para imagenes mini */
     </style>
 </head>
 <body>
@@ -32,12 +89,35 @@
     <div class="container">
         <iframe src="/clubtrashumancia/menu.html" name="menu" id="nav-iframe"></iframe>
         <div class="content">
+			<div id="myModal" class="modal">
+				<span class="close" onclick="closeModal()">&times;</span>
+				<img class="modal-content" id="modal-image">
+			</div>
+			<script>
+				function openModal(src) {
+					var modal = document.getElementById("myModal");
+					var modalImg = document.getElementById("modal-image");
+					modal.style.display = "block";
+					modalImg.src = src.replace("miniatura", "tamaño-original");
+				}
+
+				function closeModal() {
+					var modal = document.getElementById("myModal");
+					modal.style.display = "none";
+				}
+			</script>
             <h2>Así fue la comida 26 de Octubre de 2024 del Club la Trashumancia</h2>
             <p>Mientras el equipo logístico se encargaba de ir preparando la casa de autoridades (y por "preparar" nos referimos a "almorzar") un grupo de diez aventureros se dispone a recorrer las sendas que surcan el monte del Berrún.</p>
             <p>El como paseo por la pista se convierte en algo más sufrido cuando esta empieza a coger inclinación. Pasado el repecho el grupo empieza toma una senda en la que se entretienen a recoger amizqueles y en la que se cruzan con unas motos de cross.</p>
+			<img src="/clubtrashumancia/hemeroteca/2024/img/26102024/1.jpg" alt="Miniatura" class="thumbnail" onclick="openModal(this.src)">
 			<p>Merecido descanso y almuerzo con vistas a la localidad de El Royo y la de Derroñadas. Con la Ermita del Castillo sobre ellas. Se reanuda la marcha a la vez que en la casa de autoridades comienza a afluir el resto de socios del club.</p>
+			<img src="/clubtrashumancia/hemeroteca/2024/img/26102024/2.jpg" alt="Miniatura" class="thumbnail" onclick="openModal(this.src)">
+			<img src="/clubtrashumancia/hemeroteca/2024/img/26102024/3.jpg" alt="Miniatura" class="thumbnail" onclick="openModal(this.src)">
+			<img src="/clubtrashumancia/hemeroteca/2024/img/26102024/4.jpg" alt="Miniatura" class="thumbnail" onclick="openModal(this.src)">
+			<img src="/clubtrashumancia/hemeroteca/2024/img/26102024/5.jpg" alt="Miniatura" class="thumbnail" onclick="openModal(this.src)">
 			<p>En ocasiones la senda prevista no es la senda que más acomoda a la situacion. El grupo en conjunto decide desanadar sus paso y volver  a los coches por la misma senda por la que llegaron.</p>
 			<p>Al rededor de las 15:00 se reunen en la casa de autoridades con el resto del club. Aqui disfrutarán de momentos de amistad y buen humor acompañados de buenas viandas.</p>
+			<img src="/clubtrashumancia/hemeroteca/2024/img/26102024/6.jpg" alt="Miniatura" class="thumbnail" onclick="openModal(this.src)">
         </div>
     </div>
 </body>
